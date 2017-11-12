@@ -1,0 +1,15 @@
+                  跳转语句
+4.4.1 break语句
+//用于switch,while(),do while(),for语句中
+//用于强制退出循环
+//break语句只能退出当前循环
+
+4.4.2 continue语句
+//只能用于for,while()和do while()语句中
+//用于让程序跳过其后面的语句
+//使用continue语句中止本次循环，
+
+4.4.3 return语句
+//return [表达式;]
+//return返回值类型应与方法声明类型一致
+//可以通过强制类型转换实现

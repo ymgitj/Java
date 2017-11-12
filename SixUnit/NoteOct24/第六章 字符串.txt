@@ -1,0 +1,274 @@
+6.1 创建字符串
+//String不是基本数据类型
+//String类的构造方法用来创建字符串变量
+1. String()
+创建对象 String s=new String();
+2. String(char[] a)
+用一个字符 数组a创建String对象
+char[] a={'a','t','r'}; String s=new String(a);
+等价于
+String s=new String("atr");
+6.2 字符串操作
+6.2.1 字符串连接
+1. 多个字符串连接
++ 字符串连接符
+String s1=new String("hello");
+String s2=new String("world)";
+String s3=s1+" "+s2
+2.连接其它数据类型
+使用 + 连接符
+只要+类型的一个操作类型是字符串,则当它与其它类型变量相连时
+其它变量会自动转换为字符串类型变量
+6.2.2 获取字符串信息
+String 类的length()方法;
+1.str.length();
+//str ：指定的字符串对象
+//返回值：指定字符串的长度
+2.获取指定字符的位置
+str.indexOf(substr)
+//str:任意字符串对象
+//substr：要搜索的字符
+//返回值：返回字符串序列中第一次出现该字符的索引
+//如果没有检索到该字符则返回-1
+str.lastIndexOf(substr)
+//str:任意字符串对象
+//substr:要搜索的字符
+//返回值：返回字符串序列中最后一次出现该字符的索引
+//没有检索到字符返回-1
+3.获取指定索引位置的字符
+str.charAt(int index);
+//str:任意字符串
+//index:整型值,用于指定要返回字符的下标
+//返回值：返回指定索引位置的字符
+6.2.3 去除字符串中的空格
+1.去除字符串中的前导,尾部空格
+str.trim()
+//str:任意字符串
+//返回值：去除字符串的前导,尾部空格
+2.去除字符串中所有空格
+StringTokenizer(String str,String delim)
+//str:要去除空格的字符串
+//delim:从字符串str中去除的字符串
+//返回值：去掉所有空格后的字符串
+str.repalceAll(String regex,String replacement)
+//str:要去除空格的字符串
+//regex:str中想要被替换的字符串
+//replacement:新字符串,用来替换每个regex
+//返回值：去掉所有空格的字符串
+6.2.4 字符串替换
+str.replace(String regex,String replacement)
+//regex:str中想要被替换的字符串
+//replacement:新字符串,用来替换每个regex
+//返回值:返回替换后的字符串
+str.replaceFirst(String regex,String replacement)
+//regex:str中想要被替换的字符串
+//replacement:新字符串:,用来替换第一个regex
+//要替换的regex大小写有严格的要求,需要和原来的字符串保持一致,否则会失败
+6.2.5 判断字符串
+1.判断字符串是否相等
+str.equals(String otherstr);
+//str参与比较的一个字符串对象
+//otherstr参与比较另一个字符串对象
+//返回boolean类型
+str.equalsIgnoreCase(String otherstr);
+//忽略大小写
+//str:参与比较的一个字符串对象
+//otherstr:参与比较的另一个字符串对象
+//返回boolean类型
+==比较的是内存位置,
+2.判断字符串的开始与结尾
+str.startsWith(String prefix);
+//prefix:指作为前缀的字符 
+//返回值:返回boolean类型
+str.endsWith(String prefix);
+//prefix:指定作为后缀的字符串
+//返回值:返回boolean类型
+6.2.6 字母大小写转换
+str.toLowerCase();
+//str:要进行转换的字符串
+//返回值:全换成小写字母的字符串
+str.toUpperCase();
+//str:要进行转换的字符串
+//返回值:全换成大写字母的字符串
+//toLowerCase(),toUpperCase()进行大小写转换时数字或非字符不受影响
+6.2.7 字符串分割
+1.split(String sign)方法
+str.split(String sign);
+//singn:分割字符串的分割符,也可以使用正则表达式
+//返回值:根据分割符分割后的字符串
+2.split(String sign,int limit)
+str.split(String sign,int limit);
+//sign:分割字符串的分割符,也可以使用正则表达式
+//limit:限制分割的份数
+//返回值:执照分割符分割指定次数后的字符串
+//如果没有统一的对字符分割的符号,如果想定义多个分割符可以使用符号"|"
+例如使用",|="分割符为,和=
+6.2.8 根据指定分割符把字符串分行
+6.2.9 判断字符串是否是数字格式
+6.3 格式化字符串
+1.format(String format,Object...args);
+//format:格式化转换符
+//args:格式化字符串中格式说明符引用的参数,如果还有格式说明符以外的参数,
+则忽略这些额外的参数,此参数的数目是可变的,可以为零
+//返回值:一个格式化的字符串
+2.format(Local I,String format,Object...args);
+//I:格式化过程中要应用的语言环境,如果I为null,则不进行本地化.
+//format:格式化转换符
+//args:格式化字符串中格式说明符引用的参数,如果还有格式说明符以外的参数,
+则忽略这些额外的参数,此参数的数目是可变的,可以为零
+//返回值:一个格式化的字符串
+6.3.2 日期格式化
+转换符   说明                     示例
+%te     一个月中的某一天(1～31)     6
+%tb     指定语言环境的月份简称      Feb(英文),二月(中文)
+%tB     指定语言环境的月份全称      February(英文),二月(中文)
+%tA     指定语言环境的星期几全称    Monday(英文),星期一(中文)
+%ta     指定语言环境的星期几简称    Mon(英文),星期一(中文)
+%tc     包括全部时间和日期信息      星期二 三月 25 13:37:22 CST 2008
+%tY     4位年份                  2008
+%tj     一年中的第几天(001～366)   085
+%tm     月份                     03
+%td     一个月中的第几天(01～31)    02
+%ty     两位年份                  08
+6.3.3 时间格式化
+            时间格式化转换符
+转换符      说明
+ %tH    2位数字的24时制的小时(00～23)
+ %tI    2位数字的12时制的小时(01～12)
+ %tk    2位数字的24时制的小时(0～23)
+ %tl    2位数字的12时制的小时(1～12)
+ %tM    2位数字的分钟(00～59)
+ %tS    2位数字的秒表(1～12)
+ %tL    3位数字的秒表数(000～999)
+ %tN    九位数字的微秒数(000000000～999999999)  
+ %tp    指定语言环境上下午或下午标记
+ %tz    相对于GMT RFC 82格式的数字时区偏移量
+ %tZ    时区缩写形式的字符串
+ %ts    1970-01-01 00-00-00至现在经过的秒数
+ %tQ    1970-01-01 00-00-00至现在经过的毫秒数
+ 6.3.4 日期时间组合格式化
+           表6.3常见的日期和时间组合的格式
+转换符    说明                            示例
+%tF      "年-月-日" 格式 (4位年份)         2008-03-25
+%tD      "月/日/年" 格式 (2位年份)         03/25/08
+%tc      全部日期和时间信息                星期二 三月 25 15:20:00 CST 2008
+%tr      "时:分:秒" PM(AM)" 格式 (12时制) 03:22:06
+%tT      "时:分:秒" 格式 (24时制)         15:23:50 下午
+%tR      "时:分" 格式 (24时制)            15:25
+
+6.3.5 常规类型格式化
+           表6.4 常规转换符
+转换符  说明
+%b,%B  结果被格式化为布尔类型
+%h,%H  结果被格式化为苏散列码
+%s,%S  结果被格式化为字符串类型
+%c,%C  结果被格式化为字符类型
+%d     结果被格式化为十进制整数 
+%o     结果被格式化为八进制整数
+%x,%X  结果被格式化为十六进制整数 
+%e     结果被格式化为用计算机科学计数法表示的十进制数
+%a     结果被格式化为带有效位数和指数的十六进制浮点值
+%n     结果为特定平台行分隔符
+%%     结果为字面值'%'
+
+6.4 正则表达式
+6.4.1 判断是否符合正则表达式的方法
+boolean matches(String regex);
+//regex:指定的正则表达式
+//返回值:返回boolean类型
+6.4.2 正则表达式的元字符
+      表6.5 正则表达式的元字符
+ 元字符    正则表达式中的写法      含义
+ .           "."              代表任意一个字符
+ \d          "\\d"            代表0～9的任何一个数字
+ \D          "\\D"            代表任何一个非数字字符
+ \s          "\\s"            代表空白字符 如'\t','\n'
+ \S          "\\S"            代表空白
+ \w          "\\w"            代表可用作标识符的字符 ,但不包括$
+ \W          "\\W"            代表不可用作标识符的字符
+ \p{Lower}   \\p{Lower}       代表小写字母(a~z)
+ \p{Upper}   \\p{Upper}       代表大写字母(A~Z)
+ \p{ASCII}   \\{ASCII}        ASCII字符
+ \p{Alpha}   \\p{Alpha}       字母字符
+ \p{Digit}   \\{Digit}        十进制数字 即(0～9)
+ \p{Alnum}   \\{Alnum}        数字或字母字符
+ \p{Punct}   \\{Punct}        标点符号：!"#$%&'()*+,-.:;<=>?@[\]^_`{|}~
+ \p{Graph}   \\{Graph}        可见字符：[\p{Alnum}\p{pinct}]
+ \p{Print}   \\{Print}        可打印字符：[\p{Graph}\x20]
+ \p{Blank}   \\{Blank}        空格或制表符：\t
+ \p{Cntrl}   \\{Cntrl}        控制字符：[\x00-\xlF\x7F]
+//如果使用普通意义的"."字符必需使用转义字符"\"
+
+6.4.3 正则表达式的限定符
+          表6.6   限定符
+ 限定修饰符      意义        示例
+ ?            0次或1次       A?
+ *            0次或多次      A*
+ +            1次或多次      A+
+ {n}          出现n次       A{2}
+ {n,}         至少出现n次    A{3,}
+ {n,m}        出现n~m次     A{1,5}
+ 
+ 6.4.4 方括号中元字符的含义
+           表6.7 
+           
+ 字符            意义
+ [abc]          表示a,b或c
+ [^abc]         表示a,b,c之外的任何字符
+ [a-zA-Z]       表示a~z或A~Z的任何字符
+ [a-d[m-p]]     表示a~d或m~p的任何字符
+ [a-z&&[def]]   表示d,e,f
+ [a-z&&[^bc]]   表示a~z不含b,c的所有字符
+ [a-z&&[^m-p]]  表示a~z不含m~p的所有字符
+ 
+ 6.5 字符串生成器
+ 6.5.1 StringBuilder类
+ 注：StringBuilder类是一个可变的字符序列,提供一个与StringBuffer类兼容的API
+ 但是并不保证与之同步,该类是StringBuffer类的一个简易替换,在字符串缓存中被单个线程使用时,
+ 要比StringBuffer类快,但是将StringBuilder类的实例用于多个线程是不安全的,这时就要使用StringBuffer类实现.
+ 6.5.2 StringBuilder类的常用方法
+ 1.StringBuilder append(String str)方法
+ builder.append(String str);
+ //builder:声明的字符串生成器
+ //str:追加到字符串生成器中的字符串
+ //返回值:返回字符串生成器中的值班,String型
+ 
+ 注：append()方法不仅可以实现字符串的追加还可以实现任何类型的追加例如：int,boolean,char等
+ 甚至其它字符串生成器也可以往里追加。
+
+ 2.StringBuilder append(StringBuffer sb)方法
+ 注：该方法将参数sb指定的字符串缓存StringBuffer的值追加到字符串生成器中
+ builder.append(StringBuffer sb);
+ //builder:声明的字符串生成器
+ //sb:缓存中的值,追加到字符串生成器中
+ //返回值:返回将缓存的值追加到字符串生成器后的值,String型
+ 
+ 3.StringBuilder insert(int offset,String str)方法
+ 注：该方法将参数指定的字符串str添加到offset指定的位置
+ builder.insert(int offset,String str);
+ //builder:声明的字符串生成器
+ //offset:指定字符串添加的下标索引位置
+ //str;添加的字符串
+ //返回值:返回添加字符串后的字符串生成器的值,String型
+ 
+ 4.StringBuilder delete(int start,String end)方法
+ 注：该方法移除字符串生成器中的子字符串,该子字符串从指定的start处开始,到指定的end结束。
+ builder.delete(int start,String end);
+ //builder:声明的字符串生成器
+ //start:删除子字符串的起始索引位置
+ //end:删除子字符串的结尾索引位置
+ //返回值:返回删除子字符串后的字符串生成器的值,String型
+ 
+ 5.String toString()方法
+ 注：该方法返回字符串生成器的字符串表示,即将字符串生成器转换为字符串,转换后字符串生成器的值不变.
+ str.toString();
+ //str:字符串生成器的值,转换字符串
+ //返回值:返回转换后的字符串。
+ 
+ 6.5.3 将汉字和字母转换成Unicode码
+ 6.5.4 去掉字符串中重复的字符
+ 6.6.1 实现字符串加密
+ 6.6.2 验证字符串是否回文
+ 
+ 
+

@@ -1,0 +1,18 @@
+Jdk配置:
+
+
+一 .
+
+JAVA_HOME
+: D:\Program files\jdk1.70_24\
+
+"二 .
+
+CLASS_PATH
+: %JAVA_HOME%\lib\bin;%JAVA_HOME%\jre\bin
+
+三 .
+
+PATH
+
+:%JAVA_HOME%\bin
