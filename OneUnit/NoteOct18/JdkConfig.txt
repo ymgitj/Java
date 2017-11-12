@@ -1,18 +1,33 @@
 Jdk配置:
-
-
-一 .
+Windows :
+LAST:
 
 JAVA_HOME
-: D:\Program files\jdk1.70_24\
+D:\Program files\jdk1.70_24\
 
-"二 .
-
+//Jdk1.5以上的版本完全可以不用设置CLASS_PATH变量
 CLASS_PATH
-: %JAVA_HOME%\lib\bin;%JAVA_HOME%\jre\bin
-
-三 .
+.;%JAVA_HOME%\lib\dt.jar;%JAVA_HOME%\lib\tools.jar;
 
 PATH
-
 :%JAVA_HOME%\bin
+""""--------------------------------------------------
+Now
+D:\Program files\jdk1.80_04\bin
+
+"""---OK----"""
+
+Linux:
+
+通过编辑 .bash_profile 在PATH变量后添加
+/home/yeeku/Java/jdk1.80_04/bin (是jdk的安装路径)
+
+修改后的配置如下 
+PATH=.:$PATH:$HOME/bin:/home/yeeku/Java/jdk1.80_04/bin 
+
+在.bash_profile文件最后添加 导出PATH变量的值
+export PATH
+
+重新登录Linux执行
+source .bash_profile
+

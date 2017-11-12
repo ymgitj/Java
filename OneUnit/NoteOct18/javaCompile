@@ -1,0 +1,17 @@
+Javac 编译 
+初识：命令
+javac -d destdir srcFile
+-d destdir 指定编译生成字节码存放路径
+srcFile 源程序路径
+
+eg:
+javac -d . Hello.java
+. 代表当前路径,目标生成 Hello.class文件
+
+Java 运行
+在Hello.class目录运行java Hello
+
+Hello World
+注：Java是区分大小写的语言，所以java后的类名必须严格区分大小写
+
+
